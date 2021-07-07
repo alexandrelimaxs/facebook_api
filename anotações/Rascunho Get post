@@ -1,0 +1,33 @@
+function request( $param ){
+	pede pra api;
+	retorna json;
+}
+
+$jsonCons = Array;
+
+function testaData( $json ){
+    $cnt = 0;
+    for each ( $json ){
+        if( testa data ){
+            $jsonCons append $json1['id'];
+            $cnt++;
+        }
+    else{
+        break;
+        }   
+    }
+    if( count(json['data']) == $cnt && tem( $json[next] ) ){
+        return $json[next];
+    }
+    else{
+        return false;
+    }
+}
+
+$url = 'api......unixtimestamp';
+
+while( $url ){
+    $url = testaData( request( $url ) );
+}
+
+$jsonCons como final

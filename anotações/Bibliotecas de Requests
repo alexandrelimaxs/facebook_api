@@ -1,0 +1,11 @@
+---------------- REQUEST PARA PUXAR IDS EM UM LIMITE DE TEMPO ----------------
+
+1624320000 22 June 2021
+1624492800 24 June 2021
+
+me/posts?fields=id&date_format=U&since=1624320000&until=1624492800 (início e fim)
+me/posts?fields=id&date_format=U&since=1624492800 (início até agora)
+
+since = desde
+until = até
+
