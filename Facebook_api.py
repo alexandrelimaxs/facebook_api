@@ -12,18 +12,11 @@ current_url = "https://graph.facebook.com/v11.0/me/posts?fields=id&date_format=U
 
 idlist = []
 
-def api_request(url):       # função que chama o request e converte em json
+def api_request(url):
     res = requests.get(url)
     return json.loads(res.text)
 
-def date_to_unix(data):
-
-    dataf = data.split('/')
-    dataf = [int(x) for x in dataf]
-    dataf = datetime(dataf[2],dataf[1],dataf[0])
-    return  datetime.timestamp(dataf)
-
-def get_ids(dados):     # função para adicionar todos os ids do dicionário em uma lista
+def get_ids(dados):
 
     for index in range(len(dados['data'])):
         idlist.append(dados['data'][index]['id'])
@@ -31,7 +24,7 @@ def get_ids(dados):     # função para adicionar todos os ids do dicionário em
     if "next" in dados['paging']:       #condicional para realizar recursiva caso haja uma próxima página
         get_ids(api_request(dados['paging']['next']))
 
-def get_database(idlist):   #função que pega a lista de ids, coleta os dados de cada id, escreve uma matriz e retorna o DataFrame em Pandas
+def get_database(idlist):
 
     tabela = []
 
@@ -54,15 +47,17 @@ def get_database(idlist):   #função que pega a lista de ids, coleta os dados d
     #retorna a tabela em dataframe
     return pd.DataFrame(tabela, columns=["Curtidas", "Compartilhamentos", "Comentários", "Data de Criação", "Link"])   
 
-def export_excel(database,nome):    #função que coleta o nome desejado pra planilha, exporta para excel e retorna um print
+def export_excel(database,nome):
     output = nome + ".xlsx"
     database.to_excel(output)
     return print('Arquivo exportado com o nome {}'.format(output))  
 
 
-database = api_request(current_url)
-get_ids(database)
-database = get_database(idlist)
-export_excel(database, "Planilha Teste")
+# database = api_request(current_url)
+# get_ids(database)
+# database = get_database(idlist)
+# export_excel(database, "Planilha Teste")
+
+
 
 
