@@ -6,11 +6,11 @@ import math
 import json
 
 token = "EAADsWrQWaGABAGyLVcZB0KK82UrXb2L1buoAkOdu7NZAw7eabJ6jDAeSVj69e8HK5EwUQaIQZCiXhPMbleNUGfP5CDFF1790rOWDrPotjrAxuh51vID63NyLE0WNeHvHd5ZAE90xZC9jY3zZCazZCZAPnVqAuZBe4zBgG0pIZAQ6vTZAXMKLOeqJzSY"
-current_url = "https://graph.facebook.com/v11.0/me/posts?fields=id&date_format=U&since=1625108400&access_token="+token
+# current_url = "https://graph.facebook.com/v11.0/me/posts?fields=id&date_format=U&since=1625108400&access_token="+token
 
 # --------------------------------------------------
 
-idlist = []
+
 
 def api_request(url):       # função que chama o request e converte em json
     res = requests.get(url)
@@ -23,13 +23,39 @@ def date_to_unix(data):
     dataf = datetime(dataf[2],dataf[1],dataf[0])
     return  datetime.timestamp(dataf)
 
-def get_ids(dados):     # função para adicionar todos os ids do dicionário em uma lista
-
-    for index in range(len(dados['data'])):
-        idlist.append(dados['data'][index]['id'])
+def get_ids(inicio, fim):
     
-    if "next" in dados['paging']:       #condicional para realizar recursiva caso haja uma próxima página
-        get_ids(api_request(dados['paging']['next']))
+    data_inicial = date_to_unix(inicio)
+    data_final = date_to_unix(fim)
+    data_inicial = str(data_inicial)
+    data_final = str(data_final)
+    data_inicial = data_inicial[:-2]
+    data_final = data_final[:-2]
+
+    idlist = []
+    request_url = "https://graph.facebook.com/v11.0/me/posts?fields=id&date_format=U&since="+data_inicial+"&until="+data_final+"&access_token="+token
+    
+    database = api_request(request_url)
+    
+    
+    while "next" in database['paging']:
+
+        for index in range(len(database['data'])):
+            
+            idlist.append(database['data'][index]['id'])
+
+        database = (api_request(database['paging']['next']))
+            
+    
+    else:  
+        
+        for index in range(len(database['data'])):
+            
+            idlist.append(database['data'][index]['id'])
+
+        return idlist
+
+    
 
 def get_database(idlist):   #função que pega a lista de ids, coleta os dados de cada id, escreve uma matriz e retorna o DataFrame em Pandas
 
@@ -60,9 +86,6 @@ def export_excel(database,nome):    #função que coleta o nome desejado pra pla
     return print('Arquivo exportado com o nome {}'.format(output))  
 
 
-database = api_request(current_url)
-get_ids(database)
-database = get_database(idlist)
-export_excel(database, "Planilha Teste")
 
+print(get_ids('01/06/2021','06/07/2021'))
 

@@ -1,33 +1,14 @@
-function request( $param ){
-	pede pra api;
-	retorna json;
-}
-
-$jsonCons = Array;
-
-function testaData( $json ){
-    $cnt = 0;
-    for each ( $json ){
-        if( testa data ){
-            $jsonCons append $json1['id'];
-            $cnt++;
-        }
-    else{
-        break;
-        }   
-    }
-    if( count(json['data']) == $cnt && tem( $json[next] ) ){
-        return $json[next];
-    }
-    else{
-        return false;
+{'data': 
+    [
+        {'id': '289771817771969_4162659910483121'}, {'id': '289771817771969_4162662657149513'}, {'id': '289771817771969_4162594490489663'}, {'id': '289771817771969_4154928651256247'}, {'id': '289771817771969_4161917703890675'}, {'id': '289771817771969_4154729687942810'}, {'id': '289771817771969_4154727011276411'}, {'id': '289771817771969_4161732090575903'}, {'id': '289771817771969_4154710967944682'}, {'id': '289771817771969_4154707247945054'}, {'id': '289771817771969_4154652151283897'}, {'id': '289771817771969_4154624691286643'}, {'id': '289771817771969_4154637121285400'}, {'id': '289771817771969_4151953221553790'}, {'id': '289771817771969_4154296107986168'}, {'id': '289771817771969_4151984738217305'}, {'id': '289771817771969_4151965884885857'}, {'id': '289771817771969_4151982428217536'}, {'id': '289771817771969_4151979661551146'}, {'id': '289771817771969_4151916201557492'}, {'id': '289771817771969_4151907921558320'}, {'id': '289771817771969_4151902434892202'}, {'id': '289771817771969_4151897764892669'}, {'id': '289771817771969_4151510118264767'}, {'id': '289771817771969_4151493428266436'}
+    ], 
+'paging':
+    {
+    'cursors': 
+        {
+        'before': 'QVFIUnZApLWRHMjZAzQlVfU3lRWVFiZA0VvY0hybElDa2tGaWdSY1hCM0pCWkYwS2FMc01Bamd5RGhDWnVWeTdrQjVpLVk4WkpCYXFhUHI2YTRFejNSOXowbHo2eHJ4d056UEQxYW5LNjNleDEwRHZAHbFR1Q0VQVEhrclhXVENDdHBtanFI', 
+        'after': 'QVFIUmZACWmNoRFRkX3FFcFZAXQkxRVEZAmM0lWVlpLREN1ZA3F0bktYQ21VbWRBczFRV2FwS2NIVnIzM1ZAuU3NZAb2RyelBVNG9YTTVMZAjZAaTGxGQU5NYWViMWltRDFSZA3dwNHFWazdCY0JkU0V6UkY5UXNyX04tcGZAjWUh3UldPM2QzTG9L'
+        },
+    'next': 'https://graph.facebook.com/v11.0/289771817771969/posts?access_token=EAADsWrQWaGABAGyLVcZB0KK82UrXb2L1buoAkOdu7NZAw7eabJ6jDAeSVj69e8HK5EwUQaIQZCiXhPMbleNUGfP5CDFF1790rOWDrPotjrAxuh51vID63NyLE0WNeHvHd5ZAE90xZC9jY3zZCazZCZAPnVqAuZBe4zBgG0pIZAQ6vTZAXMKLOeqJzSY&date_format=U&fields=id&since=1622516400&until=1625540400&limit=25&after=QVFIUmZACWmNoRFRkX3FFcFZAXQkxRVEZAmM0lWVlpLREN1ZA3F0bktYQ21VbWRBczFRV2FwS2NIVnIzM1ZAuU3NZAb2RyelBVNG9YTTVMZAjZAaTGxGQU5NYWViMWltRDFSZA3dwNHFWazdCY0JkU0V6UkY5UXNyX04tcGZAjWUh3UldPM2QzTG9L'
     }
 }
-
-$url = 'api......unixtimestamp';
-
-while( $url ){
-    $url = testaData( request( $url ) );
-}
-
-$jsonCons como final
