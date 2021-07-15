@@ -1,1 +1,0 @@
-"https://graph.facebook.com/v11.0/"+loopid+"/insights?metric=reach%2Cimpressions%2Csaved%2Cvideo_views&access_token="+token

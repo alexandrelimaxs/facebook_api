@@ -74,7 +74,6 @@ def get_database(idlist):
         
         thisid.append(loopdata['timestamp']) if "timestamp" in loopdata else thisid.append(0)
         thisid.append(loopdata['caption']) if "caption" in loopdata else thisid.append(0)
-        # thisid.append(loopdata['media_product_type']) if "media_product_type" in loopdata else thisid.append(0)
         thisid.append(loopdata['media_type']) if "media_type" in loopdata else thisid.append(0)
         thisid.append(loopdata['like_count']) if "like_count" in loopdata else thisid.append(0)
         thisid.append(loopdata['comments_count']) if "comments_count" in loopdata else thisid.append(0)
@@ -91,14 +90,25 @@ def get_database(idlist):
         
         tabela.append(thisid)
 
-    return pd.DataFrame(tabela, columns=["Data","Texto","Tipo do Post","Likes","Comentários","Alcance","Impressões","Salvos","Visualizações","ID","Link","Link da Imagem"])   
+    tabela = pd.DataFrame(tabela, columns=["Data","Texto","Tipo do Post","Likes","Comentários","Alcance Orgânico","Impressões Orgânico","Salvos","Visualizações","ID","Link","Link da Imagem"])   
+
+    tabela.insert(3,"Classificação","")
+    tabela.insert(4,"Marca","")
+    tabela.insert(7,"Alcance","")
+    tabela.insert(8,"Alcance Pago","")
+    tabela.insert(10,"Impressão","")
+    tabela.insert(11,"Impressão Pago","")
+    tabela.insert(15,"Valor Gasto","")
+
+    return tabela
+
 
 def export_excel(database,nome):
     output = nome + ".xlsx"
     database.to_excel(output)
     return print('Arquivo exportado com o nome {}'.format(output))  
 
-database = get_database(get_ids_instagram('01/06/2021','01/07/2021'))
-export_excel(database, "Instagram - Junho 21")
+database = get_database(get_ids_instagram('01/07/2021','05/07/2021'))
+export_excel(database, "Instagram - Julho 21")
 
 

@@ -79,15 +79,20 @@ def get_database(idlist):
 
             tabela.append(thisid)
 
+    tabela = pd.DataFrame(tabela, columns=["Data","Texto","Reações","Comentários","Compartilhamentos","Impressão","Impressão Paga","Impressão Orgânica","Alcance","Alcance Pago","Alcance Orgânico","Visualizações 10s Total","Visualizações 10s Pagas","ID","Link","Link da Imagem"])
 
-    #retorna a tabela em dataframe
-    return pd.DataFrame(tabela, columns=["Data","Texto","Reações","Comentários","Compartilhamentos","Impressão","Impressão Paga","Impressão Orgânica","Alcance","Alcance Pago","Alcance Orgânico","Visualizações 10s Total","Visualizações 10s Pagas","ID","Link","Link da Imagem"])   
-
+    tabela.insert(2,"Classificação","")
+    tabela.insert(3,"Marca","")
+    tabela.insert(15,"Valor Gasto","")
+    
+    return tabela
+    
 def export_excel(database,nome):
+
     output = nome + ".xlsx"
     database.to_excel(output)
     return print('Arquivo exportado com o nome {}'.format(output))  
 
-tabela = get_database(get_ids('01/06/2021','01/07/2021'))
-export_excel(tabela,'Facebook - Junho 21')
+tabela = get_database(get_ids('01/07/2021','05/07/2021'))
+export_excel(tabela,'Facebook - Julho 21')
 
