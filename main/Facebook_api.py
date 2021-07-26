@@ -1,10 +1,13 @@
+import mysql.connector
 import pandas as pd
 import numpy as np
+import pymysql
 import requests
 from datetime import datetime
 import json
 
 token = "EAADsWrQWaGABAGyLVcZB0KK82UrXb2L1buoAkOdu7NZAw7eabJ6jDAeSVj69e8HK5EwUQaIQZCiXhPMbleNUGfP5CDFF1790rOWDrPotjrAxuh51vID63NyLE0WNeHvHd5ZAE90xZC9jY3zZCazZCZAPnVqAuZBe4zBgG0pIZAQ6vTZAXMKLOeqJzSY"
+
 
 # --------------------------------------------------
 
