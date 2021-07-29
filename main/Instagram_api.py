@@ -90,7 +90,7 @@ def get_database(idlist):
         
         tabela.append(thisid)
 
-    tabela = pd.DataFrame(tabela, columns=["Data","Texto","Tipo do Post","Likes","Comentários","Alcance Orgânico","Impressões Orgânico","Salvos","Visualizações","ID","Link","Link da Imagem"])   
+    tabela = pd.DataFrame(tabela, columns=["Data","Texto","Tipo da Mídia","Likes","Comentários","Alcance Orgânico","Impressões Orgânico","Salvos","Visualizações","ID","Link","Link da Imagem"])   
 
     tabela.insert(3,"Classificação","")
     tabela.insert(4,"Marca","")
@@ -108,7 +108,7 @@ def export_excel(database,nome):
     database.to_excel(output)
     return print('Arquivo exportado com o nome {}'.format(output))  
 
-database = get_database(get_ids_instagram('01/07/2021','05/07/2021'))
+database = get_database(get_ids_instagram('01/07/2021','28/07/2021'))
 export_excel(database, "Instagram - Julho 21")
 
 

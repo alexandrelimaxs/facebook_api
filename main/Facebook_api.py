@@ -96,6 +96,5 @@ def export_excel(database,nome):
     database.to_excel(output)
     return print('Arquivo exportado com o nome {}'.format(output))  
 
-tabela = get_database(get_ids('01/07/2021','05/07/2021'))
+tabela = get_database(get_ids('01/07/2021','28/07/2021'))
 export_excel(tabela,'Facebook - Julho 21')
-
