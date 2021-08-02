@@ -108,7 +108,7 @@ def export_excel(database,nome):
     database.to_excel(output)
     return print('Arquivo exportado com o nome {}'.format(output))  
 
-database = get_database(get_ids_instagram('01/07/2021','28/07/2021'))
+database = get_database(get_ids_instagram('01/07/2021','02/07/2021'))
 export_excel(database, "Instagram - Julho 21")
 
 
