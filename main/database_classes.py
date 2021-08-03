@@ -92,6 +92,8 @@ class banco_de_dados_facebook:
 
 class banco_de_dados_instagram:
 
+    token = "EAADsWrQWaGABAGyLVcZB0KK82UrXb2L1buoAkOdu7NZAw7eabJ6jDAeSVj69e8HK5EwUQaIQZCiXhPMbleNUGfP5CDFF1790rOWDrPotjrAxuh51vID63NyLE0WNeHvHd5ZAE90xZC9jY3zZCazZCZAPnVqAuZBe4zBgG0pIZAQ6vTZAXMKLOeqJzSY"
+
     def api_request(self, url):
         res = requests.get(url)
         return json.loads(res.text)
@@ -193,14 +195,13 @@ class banco_de_dados_instagram:
     
     def __init__(self, inicio, fim):
 
-        self.token = "EAADsWrQWaGABAGyLVcZB0KK82UrXb2L1buoAkOdu7NZAw7eabJ6jDAeSVj69e8HK5EwUQaIQZCiXhPMbleNUGfP5CDFF1790rOWDrPotjrAxuh51vID63NyLE0WNeHvHd5ZAE90xZC9jY3zZCazZCZAPnVqAuZBe4zBgG0pIZAQ6vTZAXMKLOeqJzSY"
+        # self.token = "EAADsWrQWaGABAGyLVcZB0KK82UrXb2L1buoAkOdu7NZAw7eabJ6jDAeSVj69e8HK5EwUQaIQZCiXhPMbleNUGfP5CDFF1790rOWDrPotjrAxuh51vID63NyLE0WNeHvHd5ZAE90xZC9jY3zZCazZCZAPnVqAuZBe4zBgG0pIZAQ6vTZAXMKLOeqJzSY"
 
         self.planilha = self.extract_database(inicio, fim)
 
-    def __new__(cls):
-        return self.planilha
-    
 dados = banco_de_dados_instagram('01/07/2021', '03/07/2021')
+
+dados = banco_de_dados_instagram
 
 print(dados)
 
