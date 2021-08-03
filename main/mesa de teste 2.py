@@ -1,17 +1,19 @@
-import mysql.connector
+# import mysql.connector
 
-mydb = mysql.connector.connect(
-    host = '127.0.0.1',
-    user = 'root',
-    password = 'erdnaxela',
-    database = 'facebook'
-)
+# mydb = mysql.connector.connect(
+#     host = '127.0.0.1',
+#     user = 'root',
+#     password = 'erdnaxela',
+#     database = 'facebook'
+# )
 
-mycursor = mydb.cursor()
+# mycursor = mydb.cursor()
 
-mycursor.execute('SELECT * FROM dados')
+# mycursor.execute('SELECT * FROM dados')
 
-myresult = mycursor.fetchall()
+# myresult = mycursor.fetchall()
 
-for x in myresult:
-  print(x)
+# for x in myresult:
+#   print(x)
+
+

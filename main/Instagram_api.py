@@ -112,3 +112,5 @@ database = get_database(get_ids_instagram('01/07/2021','02/07/2021'))
 export_excel(database, "Instagram - Julho 21")
 
 
+
+
