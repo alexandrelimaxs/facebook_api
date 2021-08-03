@@ -203,3 +203,4 @@ class banco_de_dados_instagram:
 dados = banco_de_dados_instagram('01/07/2021', '03/07/2021')
 
 print(dados)
+
