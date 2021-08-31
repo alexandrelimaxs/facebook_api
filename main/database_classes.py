@@ -4,6 +4,11 @@ import requests
 from datetime import datetime
 import json
 
+def export_excel(database,nome):
+    output = nome + ".xlsx"
+    database.to_excel(output)
+    return print('Arquivo exportado com o nome {}'.format(output)) 
+
 class banco_de_dados_facebook:
 
     def api_request(self, url):
@@ -199,9 +204,9 @@ class banco_de_dados_instagram:
 
         self.planilha = self.extract_database(inicio, fim)
 
-dados = banco_de_dados_instagram('01/07/2021', '03/07/2021')
+dadosi = banco_de_dados_instagram('01/08/2021', '16/08/2021')
+dadosf = banco_de_dados_facebook('01/08/2021', '16/08/2021')
 
-dados = banco_de_dados_instagram
+export_excel(dadosf.planilha,'Facebook Agosto')
 
-print(dados)
-
+export_excel(dadosi.planilha,'Instagram Agosto')
